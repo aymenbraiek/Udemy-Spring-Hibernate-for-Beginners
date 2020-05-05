@@ -26,7 +26,8 @@ public class Instructor {
     @JoinColumn(name = "instructor_detail_id")
     private InstructorDetail instructorDetail;
 
-    @OneToMany(mappedBy = "instructor",
+    @OneToMany(fetch = FetchType.LAZY,
+            mappedBy = "instructor",
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     private List<Course> courses;
 
@@ -42,44 +43,57 @@ public class Instructor {
 
     public Instructor() {
     }
+
     public Instructor(String fistName, String lastName, String email) {
         this.fistName = fistName;
         this.lastName = lastName;
         this.email = email;
     }
+
     public int getId() {
         return id;
     }
+
     public void setId(int id) {
         this.id = id;
     }
+
     public String getFistName() {
         return fistName;
     }
+
     public void setFistName(String fistName) {
         this.fistName = fistName;
     }
+
     public String getLastName() {
         return lastName;
     }
+
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
     public String getEmail() {
         return email;
     }
+
     public void setEmail(String email) {
         this.email = email;
     }
+
     public InstructorDetail getInstructorDetail() {
         return instructorDetail;
     }
+
     public void setInstructorDetail(InstructorDetail instructorDetail) {
         this.instructorDetail = instructorDetail;
     }
+
     public List<Course> getCourses() {
         return courses;
     }
+
     public void setCourses(List<Course> courses) {
         this.courses = courses;
     }
