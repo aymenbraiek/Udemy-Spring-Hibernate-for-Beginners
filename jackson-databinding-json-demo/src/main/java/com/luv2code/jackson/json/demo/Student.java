@@ -1,5 +1,9 @@
 package com.luv2code.jackson.json.demo;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+// it is letting us to ignore unknown properties on JSON files
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Student {
 
     private int id;
