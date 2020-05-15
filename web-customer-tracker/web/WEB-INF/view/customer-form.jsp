@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Szpytma Pawel
-  Date: 08.05.2020
-  Time: 17:10
-  To change this template use File | Settings | File Templates.
---%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
@@ -13,8 +6,12 @@
 <head>
     <title>Save Customer</title>
 
-    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
-    <link type="text/css" rel="stylesheet"
+    <link type="text/css"
+          rel="stylesheet"
+          href="${pageContext.request.contextPath}/resources/css/style.css">
+
+    <link type="text/css"
+          rel="stylesheet"
           href="${pageContext.request.contextPath}/resources/css/add-customer-style.css">
 </head>
 
@@ -28,24 +25,31 @@
 
 <div id="container">
     <h3>Save Customer</h3>
-    <form:form action="saveCustomer" modelAttribute="customer" method="post">
+    <form:form action="saveCustomer" modelAttribute="customer" method="POST">
+
+        <!-- need to associate this data with customer id -->
+        <form:hidden path="id" />
+
         <table>
             <tbody>
             <tr>
-                <td><label>First Name:</label></td>
-                <td><form:input path="firstName"/></td>
+                <td><label>First name:</label></td>
+                <td><form:input path="firstName" /></td>
             </tr>
+
             <tr>
-                <td><label>Last Name:</label></td>
-                <td><form:input path="lastName"/></td>
+                <td><label>Last name:</label></td>
+                <td><form:input path="lastName" /></td>
             </tr>
+
             <tr>
                 <td><label>Email:</label></td>
-                <td><form:input path="email"/></td>
+                <td><form:input path="email" /></td>
             </tr>
+
             <tr>
                 <td><label></label></td>
-                <td><input type="submit" value="Save" class="add-button"/></td>
+                <td><input type="submit" value="Save" class="save" /></td>
             </tr>
             </tbody>
         </table>
