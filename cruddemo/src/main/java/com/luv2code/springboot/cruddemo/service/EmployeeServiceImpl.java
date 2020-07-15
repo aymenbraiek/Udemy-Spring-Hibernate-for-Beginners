@@ -7,11 +7,11 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+
 @Service
 public class EmployeeServiceImpl implements EmployeeService{
 
-
-    private EmployeeDAO employeeDAO;
+    private final EmployeeDAO employeeDAO;
 
     @Autowired
     public EmployeeServiceImpl(EmployeeDAO employeeDAO) {

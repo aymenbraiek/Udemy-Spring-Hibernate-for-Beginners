@@ -13,7 +13,7 @@ import java.util.List;
 public class EmployeeDAOHibernateImpl implements EmployeeDAO {
 
     // define field for entityManager
-    private EntityManager entityManager;
+    private final EntityManager entityManager;
 
     // set up constructor injection
     @Autowired
@@ -27,7 +27,8 @@ public class EmployeeDAOHibernateImpl implements EmployeeDAO {
         Session currentSession = entityManager.unwrap(Session.class);
 
         // create a query
-        Query<Employee> theQuery = currentSession.createQuery("from Employee", Employee.class);
+        Query<Employee> theQuery =
+                currentSession.createQuery("from Employee", Employee.class);
 
         // execute query and get the result list
         List<Employee> employees = theQuery.getResultList();
@@ -65,8 +66,11 @@ public class EmployeeDAOHibernateImpl implements EmployeeDAO {
         Session currentSession = entityManager.unwrap(Session.class);
 
         // delete object with primary key
-      Query theQuery = currentSession.createQuery("DELETE from Employee where id=:employeeID");
-        theQuery.setParameter("employeeID", theId);
+      Query theQuery =
+              currentSession.createQuery(
+                      "DELETE from Employee where id=:employeeId");
+        theQuery.setParameter("employeeId", theId);
+
         theQuery.executeUpdate();
 
     }
