@@ -33,7 +33,7 @@ public class EmployeeDAOJpaImpl implements EmployeeDAO {
     public Employee findById(int theId) {
 
         // get employee & return employee
-        return entityManager.find(Employee.class, theId);
+         return entityManager.find(Employee.class, theId);
     }
 
     @Override
